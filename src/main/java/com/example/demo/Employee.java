@@ -10,26 +10,23 @@ import lombok.Data;
 
 	public class Employee {
 
-	   @Id
+	  @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id; 
-	   
+	    @Column(name = "employee_id")
+	    private Long id;
+
+	    @Column(name = "employee_name", nullable = false, length = 50)
 	    private String name;
+
+	    @Column(name = "employee_email", nullable = false, unique = true, length = 150)
 	    private String email;
-	    
-	  
 
-	    // Getters
-	    public Long getId() { return id; }
-	    public String getName() { return name; }
-	    public String getEmail() { return email; }
-	    
+	    @Column(name = "phone_number", nullable = false, unique = true)
+	    private Long phoneNo;
 
-	    // Setters
-	    public void setId(Long id) { this.id = id; }
-	    public void setName(String name) { this.name = name; }
-	    public void setEmail(String email) { this.email = email; }
-	    
+	    @Column(name = "designation", nullable = false, length = 50)
+	    private String designation;
+
 }
 
 

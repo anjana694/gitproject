@@ -13,7 +13,14 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public Employee saveEmployee(Employee employee) {
+    public Employee saveEmployee(EmployeeDTO employeeDTO) {
+    	Employee employee=new Employee();
+    	
+    	employee.setName( employeeDTO.getName());
+    	employee.setEmail(employeeDTO.getEmail());
+    	employee.setPhoneNo(employeeDTO.getPhoneNo());
+    	employee.setDesignation(employeeDTO.getDesignation());
+    	
         return employeeRepository.save(employee);
     }
 
@@ -30,6 +37,7 @@ public class EmployeeService {
         if (existing != null) {
             existing.setName(employeeDetails.getName());
             existing.setEmail(employeeDetails.getEmail());
+         
             return employeeRepository.save(existing);
         }
         return null;

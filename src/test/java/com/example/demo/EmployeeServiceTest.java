@@ -15,11 +15,11 @@ public class EmployeeServiceTest {
     @Autowired
     private EmployeeService employeeService;
 
-    private Employee sampleEmployee;
+    private EmployeeDTO sampleEmployee;
 
     @BeforeEach
     public void setUp() {
-        sampleEmployee = new Employee();
+        sampleEmployee = new EmployeeDTO();
         sampleEmployee.setName("John Doe");
         sampleEmployee.setEmail("john@example.com");
     }
